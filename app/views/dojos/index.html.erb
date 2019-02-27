@@ -1,0 +1,44 @@
+<div class="container">
+    <h2>
+        Listing
+        <span class="white-text"><%= @dojos.count %></span>
+        Dojos
+    </h2>
+
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th class="theader">Coding Dojo Branch</th>
+                <th class="theader">Street            </th>
+                <th class="theader">City              </th>
+                <th class="theader">State             </th>
+                <th class="theader">Actions           </th>
+            </tr>
+        </thead>
+        <tbody>
+            <div>
+                <% @dojos.each do |dojo| %>
+                <tr class="trbody">
+                    <td><%= dojo.branch %></td>
+                    <td><%= dojo.street %></td>
+                    <td><%= dojo.city   %></td>
+                    <td><%= dojo.state  %></td>
+                    <td>
+                        <%= link_to 'Show', dojo, class:'sn show' %>
+                        <%= link_to 'Edit', edit_dojo_path(dojo), class:'sn edit' %>
+                        <%= link_to 'Delete', dojo, class:'sn delete', method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                </tr>
+                <% end %>
+            </div>
+        </tbody>
+    </table>
+</div>
+
+<div class="row center-align">
+    <div class="new_dojo">
+        <a href="/dojos/new" class="btn waves-effect sn bottom-margin2 logreg" style="width:12rem;">NEW DOJO
+            <i class="material-icons right blue-text">send</i>
+        </a>
+    </div>
+</div>

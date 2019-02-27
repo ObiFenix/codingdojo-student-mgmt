@@ -1,0 +1,13 @@
+<nav class="dark">
+  <div class="nav-wrapper">
+    <a href="/"><img src="/assets/codingdojo.png"</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Home</a></li>
+      <li><a href="/managers/edit">camaleon<span class="blue-text">Profile</span></a></li>
+      <% unless !current_manager %>
+      <li><a href="/managers/edit"><%= current_manager.first_name %><span class="blue-text">Profile</span></a></li>
+      <li><%= link_to "Log out", "/logout", data: { method: :delete, confirm: "Are you sure?"} %></li>
+      <% end %>
+    </ul>
+  </div>
+</nav>

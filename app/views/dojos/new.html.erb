@@ -1,0 +1,7 @@
+<div class="container">
+    <%= render 'errors', dojo: @dojo %>
+    <h2>New <span class="white-text">Dojo</span></h2>
+    <%= render 'form', dojo: @dojo %>
+</div>
+
+<%= link_to 'Back', url_for(:back), class:'btn sn bottom-links' %>

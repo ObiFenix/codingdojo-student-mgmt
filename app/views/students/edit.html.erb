@@ -1,0 +1,62 @@
+<!-- EDIT Dojo Student PAGE COMPONENT -->
+
+<div class="container">
+    <!--
+    =========================
+    [ Error Display... if any
+    =========================
+    -->
+    <% if @student.errors.any? %>
+    <div id="error_explanation">
+        <h5>
+            <span class="blue-text"><%= pluralize(@student.errors.count, "error") %></span>
+            prohibited this student from being submitted:
+        </h5>
+        <ul>
+            <% @student.errors.full_messages.each do |message| %>
+            <li class="red-text">
+                <span class="blue-text right-margin1">&#187;</span>
+                <%= message %>
+            </li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
+
+    <h2 class="_header">Edittin <span class="white-text"><%= @student.first_name %>'s Profile</span></h2>
+
+    <%= form_with(model: @student, url: dojo_student_path, local: true, class: 'mt-4') do |f| %>
+        <div class="row">
+            <div class="input-field col s6">
+                <%= f.label :first_name %>
+                <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :class => 'white-text' %>
+            </div>
+            <div class="input-field col s6">
+                <%= f.label :last_name %>
+                <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name", :class => 'white-text' %>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => 'white-text' %>
+            </div>
+            <div class="input-field col s6">
+                <%= f.select :dojo_id, options_for_select(all_dojos.collect{|dojo| [dojo.branch, dojo.id] }), :class => 'custom-select' %>
+                <%= f.label :branch %>
+            </div>
+        </div>
+
+        <button
+            class="btn waves-effect sn logreg"
+            type="submit"
+            name="action"
+            style="width:10rem; margin:1rem">SUBMIT
+            <i class="material-icons right blue-text">send</i>
+        </button>
+    <% end %>
+</div>
+
+<%= link_to 'Back', url_for(:back), class:'btn sn bottom-links' %>
+<%= link_to 'Show', @this_dojo, class:'btn sn bottom-links', style:'margin-left:0.2rem' %>

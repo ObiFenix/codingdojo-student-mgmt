@@ -1,0 +1,22 @@
+Started GET "/dojos/1/edit" for 10.0.2.2 at 2019-02-27 01:06:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/vagrant/.rvm/gems/ruby-2.3.1/gems/activerecord-5.2.2/lib/active_record/log_subscriber.rb:98
+Processing by DojosController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDojo Load (3.1ms)[0m  [1m[34mSELECT  "dojos".* FROM "dojos" WHERE "dojos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dojos_controller.rb:96
+  Rendering dojos/edit.html.erb within layouts/application
+  Rendered dojos/_errors.html.erb (0.5ms)
+  [1m[36mDojo Load (1.8ms)[0m  [1m[34mSELECT "dojos".* FROM "dojos"[0m
+  ↳ app/views/dojos/_form.html.erb:4
+  [1m[36mManager Load (2.3ms)[0m  [1m[34mSELECT "managers".* FROM "managers"[0m
+  ↳ app/views/dojos/_form.html.erb:8
+  Rendered dojos/_form.html.erb (51.2ms)
+  Rendered dojos/edit.html.erb within layouts/application (112.0ms)
+  Rendered layouts/_header.html.erb (3.4ms)
+  Rendered layouts/_main.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 6941ms (Views: 6837.0ms | ActiveRecord: 21.0ms)
+
+

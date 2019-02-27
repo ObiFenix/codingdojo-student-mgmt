@@ -1,0 +1,53 @@
+<div class="container-logreg">
+
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <h4 class="_header">R<span class="white-text">EGISTER</span></h4>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="row">
+      <div class="input-field col s6 col-sm-6">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", :class => 'white-text' %>
+      </div>
+      <div class="input-field col s6 col-sm-6">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, autofocus: false, autocomplete: "last_name", :class => 'white-text' %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6 col-sm-6">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: false, autocomplete: "email", :class => 'white-text' %>
+      </div>
+      <div class="input-field col s6">
+        <%= f.select :dojo_id, options_for_select(all_dojos.collect{|dojo| [dojo.branch, dojo.id] }), :class => 'custom-select' %>
+        <%= f.label :branch %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6 col-sm-6">
+        <%= f.password_field :password, autofocus: false, autocomplete: "new-password", :class => 'white-text' %>
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      </div>
+      <div class="input-field col s6 col-sm-6">
+        <%= f.password_field :password_confirmation, autofocus: false, autocomplete: "new-password", :class => 'white-text' %>
+        <%= f.label :password_confirmation %>
+      </div>
+    </div>
+    <br/>
+
+    <button class="btn waves-effect sn bottom-margin2 logreg" type="submit" name="action" style="width:11rem;">REGISTER
+      <i class="material-icons right blue-text">send</i>
+    </button>
+
+    <%= render "managers/shared/links" %>
+
+  <% end %>
+
+</div>
